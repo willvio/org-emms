@@ -141,12 +141,12 @@ for a track position."
   (let ((file (read-file-name "File: " org-emms-default-directory)))
     (if arg
 	(let ((tp (read-string "Track position (hh:mm:ss): ")))
-	  (insert (format "[[emms:%s::%s][%s]]" (file-relative-name file) tp tp)))
+	  (insert (format "[[emms:%s::%s][%s]]" file tp tp)))
       (let ((desc (read-string "Description: ")))
 	(insert
 	 (if (equal desc "")
-	     (format "[[emms:%s]]" (file-relative-name file) desc)
-	   (format "[[emms:%s][%s]]" (file-relative-name file) desc)))))))
+	     (format "[[emms:%s]]" file desc)
+	   (format "[[emms:%s][%s]]" file desc)))))))
 
 ;;;###autoload
 (defun org-emms-insert-track ()
